@@ -4,8 +4,9 @@
 	Agregar_descarga
 {% endblock titulo %}
 {% block contenido %}
-		<link rel="stylesheet" type="text/css" href="{% static 'css/vista_agregar_descarga.css' %}">
-			<h3>AGREGAR DESCARGA </h3>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/vista_agregar_descargas.css' %}">
+	<div class="container">
+			<h5>AGREGAR DESCARGA</h5>
 <div>
 	<form action="" method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
@@ -14,5 +15,5 @@
 
 	</form>
 </div>
-
+</div>
 {%endblock%}
