@@ -10,16 +10,16 @@
 
 <body>
 	
-			<h2 >LISTA DE LAS PELICULAS RECOMENDADAS </h2>
+			<h4 >LISTA DE LAS PELICULAS RECOMENDADAS </h4>
 	<div>
 	<div class="row">
 	{% for p in lista %}
 		
 		
-    <div class="col s12 m3 x3 xl3 ">
+    <div class="col s12 m6 l3 center-align">
       <div class="card large">
         <div class="card-image">
-			 <img src="/media/{{p.imga}}" width="170px">
+			 <img src="/media/{{p.imga}}">
           <span class="card-title">{{p.rec_Nombre}}</span>
         </div>
         <div class="card-content">
@@ -27,15 +27,19 @@
            Calidad :  {{p.rec_calidad}}
         </div>
         <div class="card-action">
+        	{%if user.is_staff %}
      <a 
 	class="waves-effect waves-light btn" href="{% url 'vista_editar_recomendacion' id_rec=p.id %}"> Editar 
 	</a>
 	<a 
 	class="waves-effect waves-light btn" href="{% url 'vista_eliminar_recomendacion' id_rec=p.id %}"> Eliminar
 	</a>
+		{%endif%}
            
         </div>
       </div>
+		}
+		}
     </div>
   	{% endfor %}
 	</div>
