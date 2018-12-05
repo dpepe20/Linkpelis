@@ -2,14 +2,13 @@ body{
 	background: #333;
 }
 form{
-	margin-top: 80px;
-	margin-left: 300px;
+	margin-top: 10px;
+	
 	background: #333;
-	width: 700px;
+	width: 80%;
 	border : 3px solid #ccc;
 }
 h3{
 	background: #ccc;
-	width: 430px;
-	margin-left: 400px;
+	width:auto;%;
 }
