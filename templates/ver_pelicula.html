@@ -50,12 +50,13 @@
 	<!--  ESTOS SON LAS CONFIGURACIONES DE LOS BOTONES EDITAR Y ELIMINAR -->
 	{%if user.is_staff%}
 		<a class="waves-effect waves-light btn" href="{% url 'vista_editar_pelicula' id_peli=p.id %}"> Editar </a>
+		<br>
 		<a class="waves-effect waves-light btn"  href="{% url 'vista_eliminar_pelicula' id_peli=p.id %}"> Eliminar </a>
 	{% endif %}
 	<br>
 	<br>
 	<br>
-	<a class="waves-effect waves-light btn" href="{% url 'lista_peliculas'%}">  Regresa a la lista</a>
+	<a class="waves-effect waves-light btn" href="{% url 'lista_peliculas'%}">REGRESAR</a>
 	<br>
 	<br>
 	</div>
