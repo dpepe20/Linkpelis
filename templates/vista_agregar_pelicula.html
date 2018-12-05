@@ -1,0 +1,33 @@
+{% extends 'inicio.html' %}
+{% load staticfiles %}
+{%  block titulo %}
+	Agregar_Pelicula
+{% endblock titulo %}
+{% block contenido %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/vista_agregar_pelicula.css' %}">
+<div class="agregar">
+	<form action="" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ formulario.as_p }}
+
+		<input type="submit" value="Agregar_pelicula">
+	</form>
+					<br>
+</div>
+<script type="text/javascript">	
+	$.datepicker.regional['es']={
+      closeText:'Cerrar',
+      prevText:'Anterior',
+      nextText:'Siguiente',
+      currenText:'Hoy',
+      monthNames:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+      monthNamesShort:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+      dayNames:['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+      dayNamesShort:['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
+      dayNamesMin:['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+      firstDay:1,
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+	$( ".datepicker" ).datepicker();
+</script>
+{%endblock%}

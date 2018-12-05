@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load staticfiles %}
+	<title>
+		
+		{% block titulo %}
+
+		{% endblock%}
+	</title>
+		<!-- AQUI LE DECIMOS QUE NO S CONECTE A CSS INICIO {% load staticfiles %} llama la extencion en la configuracion :v   -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/inicioos.css' %}">
+
+	<!--Import Google Icon Font-->
+
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <!--Import materialize.css-->
+
+      <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="static/boosttrap/css/bootstrap.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script  src="{% static 'jquery/jquery-3.2.1.js' %}"></script>
+
+	<script  src="{% static 'jquery/jquery-ui.js' %}"></script>
+</head>
+<body>	
+	<body >
+	<nav class="navegar">
+    <div class="nav-wrapper">
+      <a href="{%url 'inicio'%}" class="brand-logo">PELICULAS</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{%url 'lista_peliculas'%}">Peliculas</a></li>
+        <li><a href="{%url 'lista_descarga'%}">Descargar</a></li>
+        <li><a href="{%url 'lista_recomendacion'%}">Recomendadas</a></li>
+        <li><a href="{%url 'vista_login' %}">Cerrar Session</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+  	<li><a href="{%url 'inicio'%}"><i class="media material-icons">arrow_back</i>Regresar</a></li>
+  	
+
+  	{% if user.is_staff %}
+  		<li><a href="{%url 'vista_agregar_pelicula'%}"><i class="media material-icons">add_to_photos</i>agregar_pelicula</a></li>
+  	{% endif %}
+
+    <li><a href="{%url 'lista_peliculas'%}"><i class="media material-icons">group_work</i>Peliculas</a></li>
+    <li><a href="{%url 'lista_descarga'%}"><i class="media material-icons">backup</i>Descargar</a></li>
+    <li><a href="{%url 'lista_recomendacion'%}"><i class="media material-icons">beenhere</i>Recomendadas</a></li>
+    <li><a href="{%url 'vista_login' %}"><i class="media material-icons">https</i>Cerrar Session</a></li>
+  </ul>
+	{% block contenido %}
+	<div  class ="">
+		<h3 class="titulo">LINKPELICULAS</h3>
+		<img src=" {% static "img/peli.jpg" %}">
+		<footer class="pie" class="container">
+			
+			<h5>Linkpelis</h5>
+		</footer>
+	</div>
+	{% endblock%}
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/static/js/materialize.min.js"></script>
+	<script type="text/javascript"src="/static/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+
+  	$(document).ready(function(){
+    $('select').formSelect();
+  	});
+
+  		//Initialization dropdown materializer
+
+  	document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $('.dropdown-trigger').dropdown();
+	</script>
+
+	<script>
+	 $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });</script>
+		
+</body>
+
+</body>
+</html>

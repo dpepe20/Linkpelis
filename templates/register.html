@@ -1,0 +1,16 @@
+{%block titulo%}
+{%endblock%}
+{%block contenido%}
+
+<h2>{{msj}}</h2>
+<div class="container">
+	<form action="" method="POST" >
+		{% csrf_token %}
+		{{ formulario.as_p }}
+		<input type="submit" value="REGISTRAR_USUARIO">		
+	</form>
+	</div>
+	<button>
+		<li><a class="" href="{% url 'vista_login' %}">--REGRESAR--</a></li>
+	</button>
+{%endblock%}

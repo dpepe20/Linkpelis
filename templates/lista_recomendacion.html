@@ -1,0 +1,46 @@
+{% extends "inicio.html" %}
+{% load staticfiles%}
+{%  block titulo %}
+	Lista recomendadas
+		
+{% endblock titulo %}
+	
+{% block contenido %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/lista_recomendacion.css' %}">
+
+<body>
+	
+			<h2 >LISTA DE LAS PELICULAS RECOMENDADAS </h2>
+	<div>
+	<div class="row">
+	{% for p in lista %}
+		
+		
+    <div class="col s12 m3 x3 xl3 ">
+      <div class="card large">
+        <div class="card-image">
+			 <img src="/media/{{p.imga}}" width="170px">
+          <span class="card-title">{{p.rec_Nombre}}</span>
+        </div>
+        <div class="card-content">
+           <p> Idioma :{{p.rec_idioma}}</p>
+           Calidad :  {{p.rec_calidad}}
+        </div>
+        <div class="card-action">
+     <a 
+	class="waves-effect waves-light btn" href="{% url 'vista_editar_recomendacion' id_rec=p.id %}"> Editar 
+	</a>
+	<a 
+	class="waves-effect waves-light btn" href="{% url 'vista_eliminar_recomendacion' id_rec=p.id %}"> Eliminar
+	</a>
+           
+        </div>
+      </div>
+    </div>
+  	{% endfor %}
+	</div>
+
+		<br>
+	</div>
+</body>
+ {% endblock %}
