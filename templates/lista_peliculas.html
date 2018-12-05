@@ -4,38 +4,36 @@
 	Lista peliculas
 		
 {% endblock titulo %}
-	
+<link rel="stylesheet" type="text/css" href="{% static 'css/lista_peliculas.css' %}">
+	<body>
 {% block contenido %}
-	<link rel="stylesheet" type="text/css" href="{% static 'css/lista_peliculas.css' %}">
-
-<body>
-	
-			<h2 class="tor">LISTA DE LAS PELICULAS </h2>
-<div class="row">
+	<div class="todo">
+		<div class="row">
 	{% for p in lista %}
 		
 		
-    <div class="col s12 m3 x3 xl3 ">
-      <div class="card Small"style="width:100%; height:auto;">
-        <div class="card-image" style="width:100%; height:auto;">
-			<img src="/media/{{p.imagen}}" style="width:100%; height:100%;"> 
+    <div class="col s12 m6 l3 center-align ">
+      <div class="card large">
+        <div class="card-image">
+			<img src="/media/{{p.imagen}}">
+          <span class="card-title">{{p.nombre}}</span>
         </div>
-        <div class="card sticky-action">
-        	<span class="card-title">{{p.nombre}}</span>
-    <div class="card-action"></div>
-    <a class="waves-effect waves-light btn" href="{% url 'vista_ver_pelicula' id_peli=p.id %}"> Detalles</a>
+        <div class="card-content">
+          <p>{{p.descripcion}}</p>
+        </div>
+        <div class="card-action">
+          
+          {% if user.is_staff %}
+     <a class="waves-effect waves-light btn" href="{% url 'vista_ver_pelicula' id_peli=p.id %}"> Detalles</a>
 
 	 <a class="waves-effect waves-light btn" href="{{p.Ver_online}}"  target="_blank"> VER ONLINE	</a>
-    <div class="card-reveal"></div>
-  </div>
-        
-        
-        
-        
-	</div>
+	{% endif %}
+           
+        </div>
       </div>
-   
+    </div>
   	{% endfor %}
 	</div>
-</body>
- {% endblock %}
+	</div>
+	</body>
+	 {% endblock %}
